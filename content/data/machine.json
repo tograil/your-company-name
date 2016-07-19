@@ -1,0 +1,101 @@
+[
+  {
+    "name": "ResMed S10 AirSense Auto/Pro",
+    "imageUrl": "resmed-s10-airsense-auto-pro.jpg",
+    "pricePerMonth": 65,
+    "refurbished": false,
+    "company": {
+      "name": "ResMed",
+      "id": "d2697f8c-c5df-4caa-8ed3-f6f4ec0b6647"
+    },
+    "id": "7bc73a4c-8138-4914-b913-fe48dae98f13"
+  },
+  {
+    "name": "ResMed S10 AirSense Auto",
+    "imageUrl": "resmed-s10-airsense-auto-pro.jpg",
+    "pricePerMonth": 45,
+    "refurbished": true,
+    "company": {
+      "name": "ResMed",
+      "id": "d2697f8c-c5df-4caa-8ed3-f6f4ec0b6647"
+    },
+    "id": "937b2130-1cbc-42b0-937f-3217599d3668"
+  },
+  {
+    "name": "Philips Respironics DreamStation Auto/Pro",
+    "imageUrl": "philips-respironics-dreamstation-auto-pro.jpg",
+    "pricePerMonth": 65,
+    "refurbished": false,
+    "company": {
+      "name": "Philips",
+      "id": "6378ae15-be69-4cb8-83df-67a37bb8eb7a"
+    },
+    "id": "5be213aa-e97b-4ba4-ad33-7125e7de6956"
+  },
+  {
+    "name": "Philips Respironics RemStar System One Auto",
+    "imageUrl": "philips-respironics-remstar-system-one-auto.jpg",
+    "pricePerMonth": 45,
+    "refurbished": true,
+    "company": {
+      "name": "Philips",
+      "id": "6378ae15-be69-4cb8-83df-67a37bb8eb7a"
+    },
+    "id": "abc62a32-b9ea-4ae0-a509-546161f9948f"
+  },
+  {
+    "name": "Fisher & Paykel ICON Premo/Auto",
+    "imageUrl": "fisher-and-paykel-icon-premo-auto.jpg",
+    "pricePerMonth": 49,
+    "refurbished": false,
+    "company": {
+      "name": "Fisher & Paykel",
+      "id": "818876a4-58e7-479b-a6c7-c0464e388614"
+    },
+    "id": "27075fec-9b8e-4ff6-b4a9-4080453beebd"
+  },
+  {
+    "name": "Fisher & Paykel ICON Auto",
+    "imageUrl": "fisher-and-paykel-icon-auto.jpg",
+    "pricePerMonth": 29,
+    "refurbished": true,
+    "company": {
+      "name": "Fisher & Paykel",
+      "id": "818876a4-58e7-479b-a6c7-c0464e388614"
+    },
+    "id": "b38aab63-c260-4c00-b15b-e676313925b6"
+  },
+  {
+    "name": "ResMed S9 Auto/CPAP",
+    "imageUrl": "resmed-s9-auto-cpap.jpg",
+    "pricePerMonth": 29,
+    "refurbished": true,
+    "company": {
+      "name": "ResMed",
+      "id": "d2697f8c-c5df-4caa-8ed3-f6f4ec0b6647"
+    },
+    "id": "657d4c9c-7b61-41b4-bd9f-a1735e4fc210"
+  },
+  {
+    "name": "Philips Respironics System One Auto",
+    "imageUrl": "philips-respironics-system-one-auto.jpg",
+    "pricePerMonth": 29,
+    "refurbished": true,
+    "company": {
+      "name": "Philips",
+      "id": "6378ae15-be69-4cb8-83df-67a37bb8eb7a"
+    },
+    "id": "f24d4aaa-5ff9-4890-951e-dc5cee81a0b4"
+  },
+  {
+    "name": "Philips Respironics DreamStation BiPAP",
+    "imageUrl": "philips-respironics-dreamstation-bipap.jpg",
+    "pricePerMonth": 75,
+    "refurbished": false,
+    "company": {
+      "name": "Philips",
+      "id": "6378ae15-be69-4cb8-83df-67a37bb8eb7a"
+    },
+    "id": "2bc5749a-9c6c-4beb-8a96-0fc93b4af93e"
+  }
+]

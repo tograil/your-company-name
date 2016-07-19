@@ -1,0 +1,21 @@
+<div class="window">
+
+  <div class="logotype">[ your <span>company</span> name ]</div>
+
+  <div class="form" ng-controller="loginController">
+
+    <div class="title">Enter Your Data</div>
+
+    <form ng-submit="login();">
+      <input type="text" placeholder="login" ng-model="loginData.userName">
+
+      <input type="password" placeholder="password" ng-model="loginData.password">
+
+      <div ng-show="invalid==true">{{message}}</div>
+
+      <input type="submit" value="log in">
+    </form>
+
+  </div>
+
+</div>

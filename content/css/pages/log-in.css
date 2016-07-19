@@ -1,0 +1,101 @@
+body {
+  background-color: #f0f0f2;}
+
+.window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-60%);
+  -moz-transform: translate(-50%,-60%);
+  -ms-transform: translate(-50%,-60%);
+  -o-transform: translate(-50%,-60%);
+  transform: translate(-50%,-60%);}
+
+.window .logotype {
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #393E46;}
+
+.window .logotype span {
+  color: #57c131;}
+
+.window .form {
+  width: 340px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 35px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 0 35px rgba(0,0,0,.05);
+  box-shadow: 0 0 35px rgba(0,0,0,.05);}
+
+.window .form .title {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;}
+
+.window .form form {
+  width: 340px;
+  padding: 0 40px;}
+
+.window .form form input[type="text"],
+.window .form form input[type="password"] {
+  width: 260px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #222831;
+  border: 2px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #fff;}
+
+.window .form form input[type="text"]:hover,
+.window .form form input[type="password"]:hover,
+.window .form form input[type="text"]:focus,
+.window .form form input[type="password"]:focus {border-color: #57c131;}
+
+.window .form form input:focus::-webkit-input-placeholder {color: transparent}
+.window .form form input:focus::-moz-placeholder          {color: transparent}
+.window .form form input:focus:-moz-placeholder           {color: transparent}
+.window .form form input:focus:-ms-input-placeholder      {color: transparent}
+.window .form form input::-webkit-input-placeholder {color: #ccc;}
+.window .form form input::-moz-placeholder          {color: #ccc;}
+.window .form form input:-moz-placeholder           {color: #ccc;}
+.window .form form input:-ms-input-placeholder      {color: #ccc;}
+
+.window .form form input[type="submit"] {
+  font-weight: 600;
+  width: 100px;
+  margin: 0 80px 30px 80px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #eee;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #57c131;}
+
+.window .form form input[type="submit"]:hover,
+.window .form form input[type="submit"]:focus,
+.window .form form input[type="submit"]:active {
+  width: 140px;
+  margin: 0 60px 30px 60px;
+  border-color: #fe7847;
+  background-color: #b9e937;}
+
+.window .form form input[type="text"].alert,
+.window .form form input[type="password"].alert {
+  border-color: rgb(229, 57, 53);}
+
+.window .form form div {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;}

@@ -1,0 +1,42 @@
+aside {
+  position: fixed;
+  z-index: 600;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 220px;
+  margin: 0;
+  padding: 20px 0 0 0;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 0px 7px rgba(0,0,0,.05);
+     -moz-box-shadow: 1px 0px 7px rgba(0,0,0,.05);
+          box-shadow: 1px 0px 7px rgba(0,0,0,.05);}
+
+aside ul {
+  margin: 0;
+  padding: 0;}
+
+aside ul li,
+aside ul li a {
+  position: relative;
+  display: block;}
+
+aside ul li a {
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #222831;}
+
+aside ul a:hover {
+  background-color: #f0f0f2;}
+
+aside ul .active a,
+aside ul .active > a:hover,
+aside ul .active > a:focus {
+  color: #fff;
+  background-color: #57c131;}
+
+aside ul li.separate {
+  margin: 20px 0;
+  border-bottom: 1px solid #eee;}

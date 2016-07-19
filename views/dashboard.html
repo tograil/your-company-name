@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-lg-12 table-view">
+
+    <div class="upload-file">
+      <div class="title">At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
+      <div class="group">
+        <div class="grp-file">
+          <label>
+            <span>Choose file<input type="file"></span>
+          </label>
+          <input type="text" disabled>
+        </div>
+      </div>
+      <div class="status-msg">Some status text message</div>
+    </div>
+
+    <form class="filter" novalidate>
+      <input class="pull-left" type="search" placeholder="search" ng-model="search">
+    </form>
+
+    <div class="darkness" ng-show="readContactInfo">
+      <div class="window">
+        <div class="title">User info</div>
+        <div class="text"><span>Full Name:</span> {{currentUser.fullName}}</div>
+        <div class="text"><span>Email:</span> {{currentUser.email}}</div>
+        <div class="text"><span>Phone:</span> {{currentUser.phone}}</div>
+        <form>
+          <input class="left" type="submit" value="mark as read" ng-click="markAsRead(msg.id)" ng-show="currentUser.new == true">
+          <input class="right" type="submit" value="Close" ng-click="readContactInfo = false">
+        </form>
+      </div>
+    </div>
+
+    <div class="table">
+      <table>
+
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Time</td>
+            <td>User</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+            <td>name {{x}}</td>
+            <td>type {{x}}</td>
+            <td>time {{x}}</td>
+            <td>user {{x}}</td>
+            <td class="buttons-group">
+              <input type="submit" value="read &amp; update" ng-click="read(msg.id)">
+              <input type="submit" value="download" ng-click="read(msg.id)">
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
