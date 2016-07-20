@@ -32,6 +32,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'globalConstan
 
             _authentication.isAuth = true;
             _authentication.userName = loginData.userName;
+            _authentication.token = response.access_token
 
             deferred.resolve(response);
 
@@ -60,6 +61,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'globalConstan
         {
             _authentication.isAuth = true;
             _authentication.userName = authData.userName;
+            _authentication.token = authData.token;
         }
 
     }

@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row" ng-controller="Dashboard">
   <div class="col-lg-12 table-view">
 
-    <div class="upload-file">
+    <div class="upload-file" ng-show="isUploadAvailable">
       <div class="title">At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
       <div class="group">
         <div class="grp-file">
@@ -18,19 +18,7 @@
       <input class="pull-left" type="search" placeholder="search" ng-model="search">
     </form>
 
-    <div class="darkness" ng-show="readContactInfo">
-      <div class="window">
-        <div class="title">User info</div>
-        <div class="text"><span>Full Name:</span> {{currentUser.fullName}}</div>
-        <div class="text"><span>Email:</span> {{currentUser.email}}</div>
-        <div class="text"><span>Phone:</span> {{currentUser.phone}}</div>
-        <form>
-          <input class="left" type="submit" value="mark as read" ng-click="markAsRead(msg.id)" ng-show="currentUser.new == true">
-          <input class="right" type="submit" value="Close" ng-click="readContactInfo = false">
-        </form>
-      </div>
-    </div>
-
+    
     <div class="table">
       <table>
 

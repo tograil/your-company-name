@@ -1,7 +1,7 @@
 var serviceId = 'dataService';
-angular.module('dataServiceModule', []).factory(serviceId, ['$http', 'globalConstants', dataService]);
+angular.module('dataServiceModule', []).factory(serviceId, ['$http', 'globalConstants', 'authService', dataService]);
 
-function dataService($http, globalConstants) {
+function dataService($http, globalConstants, authService) {
 
     // Change with appropriate url
     var urlBase = globalConstants.apiUrl;
@@ -9,6 +9,7 @@ function dataService($http, globalConstants) {
     var service = {
         getMachines: getMachines,
         getContacts: getContacts,
+        getDashboard: getDashboard,
         postContact : postContact,
         postRent: postRent,
         setReadContact: setReadContact,
@@ -21,6 +22,7 @@ function dataService($http, globalConstants) {
     function getMachines() {
         var subUrl = 'api/Machines';
         return $http.get(urlBase + subUrl);
+        
     }
 
     function getMachine(id) {
@@ -48,6 +50,13 @@ function dataService($http, globalConstants) {
         return $http.get(urlBase + subUrl + id);
     }
 
+    function getDashboard() {
+        debugger;
+        var subUrl = 'api/dashboard/'
+        return $http.get(urlBase + subUrl, {headers: {
+                'Authorization': 'Bearer ' + authService.authentication.token
+            }});
+    }
     function postContact(data) {
         var subUrl = 'api/customer/';
         return post(urlBase + subUrl, data);
