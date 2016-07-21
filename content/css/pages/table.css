@@ -85,15 +85,18 @@
   padding: 5px;
   border: 2px solid #ddd;}
 
-.table-view table tbody tr td .group .select {
+.table-view table tr td.for-select {padding: 0;}
+
+.table-view table tr td.for-select .select {
   height: 34px;
   padding-right: 40px;
   border: none;
+  overflow: hidden;
   border-radius: 3px;
   background: url(../../images/form-ctrl/arrow-dowm.png) no-repeat right center/34px 34px;
   background-color: #fff;}
 
-.table-view table tbody tr td .group .select select {
+.table-view table tr td.for-select .select select {
   line-height: 100%;
   display: block;
   width: calc(100% + 80px);
@@ -102,36 +105,30 @@
   padding: 0 10px;
   border: none;
   background: transparent;
-
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;}
 
-.table-view table tbody tr td .group .select:hover,
-.table-view table tbody tr td .group .select:focus {
+.table-view table tr td.for-select .select:hover,
+.table-view table tr td.for-select .select:focus {
   border: none;}
 
-.table-view table tbody tr.head {
-  font-weight: 500;
-  text-align: center;}
-
-.table-view table tbody tr.body {
-  text-align: right;}
-
-.table-view table tbody tr td.title {
-  font-weight: 500;
-  text-align: left;
-  text-transform: uppercase;}
-
 .table-view table tbody tr td.month {
-  background-color: transparent !important;
+  transform: rotate(-90deg);
   text-align: center;
-  transform: rotate(-90deg);}
+  background-color: transparent !important;}
 
 .table-view table tbody tr td .rotate-title {
-  text-align: center;
   transform: rotate(-90deg);
-}
+  text-align: center;}
+
+.table-view table tbody tr.rotate td {
+  transform: rotate(-90deg);
+  text-align: left;
+  height: 120px;
+  width: 10px;
+  vertical-align: middle;
+  white-space   : nowrap;}
 
 .table-view table tbody tr:hover td {
   background-color: #f0f0f2;}

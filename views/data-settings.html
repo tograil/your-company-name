@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="DataSettings">
   <div class="col-lg-12 table-view">
 
     <form class="filter" novalidate>
@@ -7,29 +7,30 @@
 
     <div class="table">
       <table>
-        <tbody>
+        <thead>
           <tr>
-            <td colspan="13">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">{{x}}. Some Description</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+            <td class="for-select" colspan="13">
+              <div class="select">
+                <select>
+                  <option value="">Subject &amp; Description</option>
+                  <option ng-repeat="sub in subject">{{sub.desc}}</option>
+                </select>
+              </div>
             </td>
           </tr>
-        </tbody>
+        </thead>
+      </table>
+    </div>
 
-        <tbody>
-          <tr class="head">
-            <td class="title">year</td>
-            <td colspan="12">2016</td>
+    <div class="table">
+      <table>
+        <tbody class="text-center">
+          <tr> <!-- YEAR -->
+            <td class="text-medium text-left text-uppercase">year</td>
+            <td class="text-medium text-center" colspan="12">2016</td>
           </tr>
-          <tr class="head">
-            <td class="title">month</td>
+          <tr> <!-- MONTH -->
+            <td class="text-medium text-left text-uppercase">month</td>
             <td>Jan. 16</td>
             <td>Feb. 16</td>
             <td>Mar. 16</td>
@@ -43,87 +44,44 @@
             <td>Nov. 16</td>
             <td>Dec. 16</td>
           </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Plan</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+
+          <tr> <!-- ACCUMULATE PLAN -->
+            <td class="for-select">
+              <div class="select">
+                <select>
+                  <option value="">{{accumulate.titlePlan}}</option>
+                  <option ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</option>
+                </select>
+              </div>
             </td>
-            <td>9 367</td>
-            <td>28 365</td>
-            <td>47 479</td>
-            <td>59 622</td>
-            <td>75 499</td>
-            <td>123 246</td>
-            <td>163 177</td>
-            <td>225 025</td>
-            <td>271 650</td>
-            <td>365 930</td>
-            <td>503 338</td>
-            <td>621 474</td>
+            <td ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</td>
           </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Actual</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+
+          <tr>  <!-- ACCUMULATE ACTUAL -->
+            <td class="for-select title">
+              <div class="select">
+                <select>
+                  <option value="">{{accumulate.titleActual}}</option>
+                  <option ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</option>
+                </select>
+              </div>
             </td>
-            <td>9 367</td>
-            <td>28 352</td>
-            <td>47 470</td>
-            <td>59 613</td>
-            <td>75 491</td>
-            <td>87 145</td>
-            <td>117 366</td>
-            <td>169 999</td>
-            <td>197 712</td>
-            <td>221 530</td>
-            <td>293 411</td>
-            <td></td>
+            <td ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</td>
           </tr>
+
         </tbody>
       </table>
     </div>
 
     <div class="table">
       <table>
-        <tbody>
-          <tr>
-            <td colspan="13">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}. Some Description</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </td>
+        <tbody class="text-center">
+          <tr> <!-- YEAR -->
+            <td class="text-medium text-left text-uppercase">year</td>
+            <td class="text-medium text-center" colspan="12">2015</td>
           </tr>
-        </tbody>
-
-        <tbody>
-          <tr class="head">
-            <td class="title">year</td>
-            <td colspan="12">2015</td>
-          </tr>
-          <tr class="head">
-            <td class="title">month</td>
+          <tr> <!-- MONTH -->
+            <td class="text-medium text-left text-uppercase">month</td>
             <td>Jan. 16</td>
             <td>Feb. 16</td>
             <td>Mar. 16</td>
@@ -137,152 +95,31 @@
             <td>Nov. 16</td>
             <td>Dec. 16</td>
           </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Plan</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </td>
-            <td>9 367</td>
-            <td>28 365</td>
-            <td>47 479</td>
-            <td>59 622</td>
-            <td>75 499</td>
-            <td>123 246</td>
-            <td>163 177</td>
-            <td>225 025</td>
-            <td>271 650</td>
-            <td>365 930</td>
-            <td>503 338</td>
-            <td>621 474</td>
-          </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Actual</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </td>
-            <td>9 367</td>
-            <td>28 352</td>
-            <td>47 470</td>
-            <td>59 613</td>
-            <td>75 491</td>
-            <td>87 145</td>
-            <td>117 366</td>
-            <td>169 999</td>
-            <td>197 712</td>
-            <td>221 530</td>
-            <td>293 411</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <div class="table">
-      <table>
-        <tbody>
-          <tr>
-            <td colspan="13">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12]">{{x}}. Some Description</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+          <tr> <!-- ACCUMULATE PLAN -->
+            <td class="for-select">
+              <div class="select">
+                <select>
+                  <option value="">{{accumulate.titlePlan}}</option>
+                  <option ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</option>
+                </select>
+              </div>
             </td>
+            <td ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</td>
           </tr>
-        </tbody>
 
-        <tbody>
-          <tr class="head">
-            <td class="title">year</td>
-            <td colspan="12">2014</td>
-          </tr>
-          <tr class="head">
-            <td class="title">month</td>
-            <td>Jan. 16</td>
-            <td>Feb. 16</td>
-            <td>Mar. 16</td>
-            <td>Apr. 16</td>
-            <td>May. 16</td>
-            <td>Jun. 16</td>
-            <td>Jul. 16</td>
-            <td>Aug. 16</td>
-            <td>Sep. 16</td>
-            <td>Oct. 16</td>
-            <td>Nov. 16</td>
-            <td>Dec. 16</td>
-          </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Plan</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+          <tr>  <!-- ACCUMULATE ACTUAL -->
+            <td class="for-select title">
+              <div class="select">
+                <select>
+                  <option value="">{{accumulate.titleActual}}</option>
+                  <option ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</option>
+                </select>
+              </div>
             </td>
-            <td>9 367</td>
-            <td>28 365</td>
-            <td>47 479</td>
-            <td>59 622</td>
-            <td>75 499</td>
-            <td>123 246</td>
-            <td>163 177</td>
-            <td>225 025</td>
-            <td>271 650</td>
-            <td>365 930</td>
-            <td>503 338</td>
-            <td>621 474</td>
+            <td ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</td>
           </tr>
-          <tr class="body">
-            <td class="title">
-              <form action="">
-                <div class="group">
-                  <div class="select">
-                    <select>
-                      <option value="">Accumulate Actual</option>
-                      <option ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">{{x}}</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </td>
-            <td>9 367</td>
-            <td>28 352</td>
-            <td>47 470</td>
-            <td>59 613</td>
-            <td>75 491</td>
-            <td>87 145</td>
-            <td>117 366</td>
-            <td>169 999</td>
-            <td>197 712</td>
-            <td>221 530</td>
-            <td>293 411</td>
-            <td></td>
-          </tr>
+
         </tbody>
       </table>
     </div>

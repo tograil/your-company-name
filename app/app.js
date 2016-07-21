@@ -16,7 +16,6 @@ app.controller('Ctrl', function($scope, $http) {
 
   $scope.pageSelection = function(pageNumber) {view = pageNumber;}
   $scope.returnActiveClass = function(pageNumber) {return (pageNumber == view) ? 'active' : '';}
-  $scope.returnClassNewMsg = function(newMsg) {return newMsg ? 'new' : '';};
 
 });
 
