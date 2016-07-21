@@ -11,7 +11,7 @@ app.controller('Ctrl', function($scope, $http) {
 
   var view = 0;
   var pageUrl = [
-    'dashboard.html',
+    'dashboard',
     'documents'];
 
   $http.get('content/data/help-msg.json').success(function(data){$scope.helpMsg = data;});
