@@ -1,6 +1,9 @@
 var app = angular.module('app');
 
 app.config(function($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise("/main-dashboard")
+
   $stateProvider
     .state('main', {
       url: '/main',
@@ -32,11 +35,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 });
 
-app.run(['$state', 'authService', function($state, authService) {
-  authService.fillAuthData();
+// app.run(['$state', 'authService', function($state, authService) {
+//   authService.fillAuthData();
 
-  // if (authService.authentication.isAuth === true)
-  $state.go('main.dashboard');
-  // else
-  // $state.go('login');
-}]);
+//   if (authService.authentication.isAuth === true)
+//     $state.go('main.dashboard');
+//   else
+//     $state.go('login');
+
+// }]);
