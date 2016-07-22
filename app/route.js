@@ -43,6 +43,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: 'views/login.html'
     })
+    .state('registration', {
+      url: '/registration',
+      templateUrl: 'views/registration.html'
+    })
 });
 
 app.run(['$state', 'authService', function($state, authService) {
