@@ -1,4 +1,4 @@
-var app = angular.module('app', ['angular-ellipses', 'ui.router', 'LocalStorageModule', 'dataServiceModule', 'chart.js'])
+var app = angular.module('app', ['angular-ellipses', 'ui.router', 'LocalStorageModule', 'dataServiceModule', 'chart.js', '720kb.datepicker'])
 
 // Optional configuration
   .config(['ChartJsProvider', function(ChartJsProvider) {

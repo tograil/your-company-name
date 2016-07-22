@@ -34,15 +34,18 @@
   background-color: #fff;
   box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
 
-.table-view .filter input[type='search'] {
+.table-view input[type='text'],
+.table-view input[type='search'] {
   width: 100%;
   height: 34px;
   padding: 0 10px;
   border: 2px solid #ddd;
   border-radius: 3px;}
 
-.table-view .filter input[type='search']:hover,
-.table-view .filter input[type='search']:focus {
+.table-view input[type='text']:hover,
+.table-view input[type='text']:focus,
+.table-view input[type='search']:hover,
+.table-view input[type='search']:focus {
   color: #222831;
   border: 2px solid #57c131;}
 
@@ -159,3 +162,52 @@
 .table-view table tbody tr td input:focus,
 .table-view table tbody tr td input:active {
   background-color: #b9e937;}
+
+div.date-pick {
+  height: 34px;
+}
+
+div.date-pick > *{
+  display: inline-block;
+}
+
+div.date-pick span {
+  line-height: 34px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+div.date-pick span.data-label {
+  line-height: 34px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
