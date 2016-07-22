@@ -36,7 +36,7 @@ function dataService($http, globalConstants, authService) {
     }
 
     function setReadRent(id) {
-        var subUrl = 'api/customer/seen/'
+        var subUrl = 'api/customer/seen/';
         return $http.get(urlBase + subUrl + id);
     }
 
@@ -46,13 +46,13 @@ function dataService($http, globalConstants, authService) {
     }
 
     function setReadContact(id) {
-        var subUrl = 'api/customer/seen/'
+        var subUrl = 'api/customer/seen/';
         return $http.get(urlBase + subUrl + id);
     }
 
     function getDashboard() {
         debugger;
-        var subUrl = 'api/dashboard/'
+        var subUrl = 'api/dashboard/';
         return $http.get(urlBase + subUrl, {headers: {
                 'Authorization': 'Bearer ' + authService.authentication.token
             }});

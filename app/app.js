@@ -1,8 +1,7 @@
 var app = angular.module('app', ['angular-ellipses', 'ui.router', 'LocalStorageModule', 'dataServiceModule']);
 
 app.constant('globalConstants', {
-  //apiUrl: "http://localhost:51925/",
-  apiUrl: "http://vba-excel-backend.azurewebsites.net/",
+  apiUrl: "http://localhost:51925/",
   landingId: "admin",
   doctorPrescription: [ "Unsure", "Yes", "No" ]
 });

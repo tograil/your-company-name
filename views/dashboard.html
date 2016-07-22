@@ -6,10 +6,11 @@
     <div class="upload-file">
       <div class="title">At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
       <div class="group">
-        <input type="file"> <!-- Сам выбор файла -->
+        <input type="file" id="file1" name="file" multiple
+            ng-files="getTheFiles($files)"> <!-- Сам выбор файла -->
       </div>
       <div class="group">
-        <input type="button" value="Upload File"> <!-- Кнопка для загрузки файла -->
+        <input type="button" ng-click="uploadFiles()" value="Upload" > <!-- Кнопка для загрузки файла -->
       </div>
       <div class="status-msg">Some status text message</div>
     </div>
