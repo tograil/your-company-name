@@ -1,0 +1,14 @@
+{
+  "name": "scripts",
+  "homepage": "steadyworks.pro",
+  "authors": [
+    "steadyworks.pro"
+  ],
+  "description": "",
+  "main": "",
+  "license": "steadyworks.pro",
+  "dependencies": {
+    "angular-local-storage": "^0.2.7",
+    "angular-chart.js": "^0.10.2"
+  }
+}
