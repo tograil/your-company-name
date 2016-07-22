@@ -6,6 +6,14 @@
     <div class="upload-file">
       <div class="title">At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
       <div class="group">
+        <div class="select">
+          <select>
+            <option value="">Name</option>
+            <option ng-repeat="x in [1,2,3,4,5]">{{x}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="group">
         <input type="file" id="file1" name="file" multiple
             ng-files="getTheFiles($files)"> <!-- Сам выбор файла -->
       </div>
