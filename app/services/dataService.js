@@ -14,7 +14,8 @@ function dataService($http, globalConstants, authService) {
         postRent: postRent,
         setReadContact: setReadContact,
         getRents: getRents,
-        setReadRent: setReadRent
+        setReadRent: setReadRent,
+        getEndUsers: getEndUsers
     };
 
     return service;
@@ -44,6 +45,11 @@ function dataService($http, globalConstants, authService) {
         var subUrl = 'api/customer/'
         return $http.get(urlBase + subUrl);
     }
+    
+    function getEndUsers() {
+        var subUrl = '/api/account/users';
+        return $http.get(urlBase + subUrl);
+    }
 
     function setReadContact(id) {
         var subUrl = 'api/customer/seen/';
@@ -63,6 +69,11 @@ function dataService($http, globalConstants, authService) {
     }
 
     function postRent(data) {
+        var subUrl = 'api/customer/rent';
+        return post(urlBase + subUrl, data);
+    }
+
+    function postUser(data) {
         var subUrl = 'api/customer/rent';
         return post(urlBase + subUrl, data);
     }

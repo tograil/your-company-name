@@ -18,11 +18,14 @@ app.directive('ngFiles', ['$parse', function ($parse) {
 
     $scope.readContactInfo = false;
     $scope.isUploadAvailable = false;
-
+    $scope.users = [];
 
     dataService.getDashboard().success(function (data) {
         debugger;
         $scope.isUploadAvailable = data.isUploadAvailable;
+        dataService.getEndUsers().success(function (data) {
+            $scope.users = data;
+        });
     });
 
     var formdata = new FormData();
