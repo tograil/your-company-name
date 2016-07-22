@@ -1,0 +1,32 @@
+<div class="table">
+  <div class="title">{{hideButtons}}<br>At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
+</div>
+
+<form class="filter" novalidate>
+  <input class="pull-left" type="search" placeholder="search" ng-model="search">
+</form>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Time</td>
+        <td>User</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+        <td>name {{x}}</td>
+        <td>type {{x}}</td>
+        <td>time {{x}}</td>
+        <td>user {{x}}</td>
+        <td class="buttons-group">
+          <input type="button" value="read &amp; update" name="button" ng-click="showButtons();">
+          <input type="button" value="download">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

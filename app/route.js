@@ -19,21 +19,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'views/documents.html',
         onEnter: function() {window.scrollTo(0,0);}
       })
-      .state('main.settings', {
-        url: '-data-settings',
-        templateUrl: 'views/data-settings.html',
-        onEnter: function() {window.scrollTo(0,0);}
-      })
-      .state('main.plan', {
-        url: '-data-plan',
-        templateUrl: 'views/data-plan.html',
-        onEnter: function() {window.scrollTo(0,0);}
-      })
-      .state('main.actual', {
-        url: '-data-actual',
-        templateUrl: 'views/data-actual.html',
-        onEnter: function() {window.scrollTo(0,0);}
-      })
+        .state('main.documents.list', {
+          url: '-list',
+          templateUrl: 'views/list.html',
+          onEnter: function() {window.scrollTo(0,0);}
+        })
+        .state('main.documents.settings', {
+          url: '-settings',
+          templateUrl: 'views/data-settings.html',
+          onEnter: function() {window.scrollTo(0,0);}
+        })
+        .state('main.documents.plan', {
+          url: '-plan',
+          templateUrl: 'views/data-plan.html',
+          onEnter: function() {window.scrollTo(0,0);}
+        })
+        .state('main.documents.actual', {
+          url: '-actual',
+          templateUrl: 'views/data-actual.html',
+          onEnter: function() {window.scrollTo(0,0);}
+        })
     .state('login', {
       url: '/login',
       templateUrl: 'views/login.html'

@@ -185,9 +185,14 @@ div.date-pick span.data-label {
   margin-right: 5px;
 }
 
+.table .group:last-child {margin-bottom: 0;}
 
+.table .group > input {
+  background-color: #57c131;
+  display: inline-block;
+}
 
-
+.table .group > input:hover {background-color: #b9e937;}
 
 
 
