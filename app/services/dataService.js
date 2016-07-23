@@ -15,7 +15,8 @@ function dataService($http, globalConstants, authService) {
         setReadContact: setReadContact,
         getRents: getRents,
         setReadRent: setReadRent,
-        getEndUsers: getEndUsers
+        getEndUsers: getEndUsers,
+        getDocuments: getDocuments
     };
 
     return service;
@@ -57,9 +58,15 @@ function dataService($http, globalConstants, authService) {
     }
 
     function getDashboard() {
-        debugger;
         var subUrl = 'api/dashboard/';
-        return $http.get(urlBase + subUrl, {headers: {
+        return $http.get(urlBase + subUrl, { headers: {
+                'Authorization': 'Bearer ' + authService.authentication.token
+            }});
+    }
+
+    function getDocuments() {
+        var subUrl = 'api/document/';
+        return $http.get(urlBase + subUrl, { headers: {
                 'Authorization': 'Bearer ' + authService.authentication.token
             }});
     }
