@@ -194,8 +194,26 @@ div.date-pick span.data-label {
 
 .table .group > input:hover {background-color: #b9e937;}
 
+.red    {background-color: #ffcdd2 !important;}
+.orange {background-color: #ffe0b2 !important;}
+.yellow {background-color: #fff59d !important;}
+.green  {background-color: #c8e6c9 !important;}
+.blue   {background-color: #bbdefb !important;}
+.pink   {background-color: #f8bbd0 !important;}
 
+.chart-bottom {
+  position: fixed;
+  bottom: 0;
+  width: -webkit-calc(100% - 260px);
+  width: -moz-calc(100% - 260px);
+  width: calc(100% - 260px);
+  right: 20px;
+  -webkit-box-shadow: 0 0 0 20px #f0f0f2 !important;
+     -moz-box-shadow: 0 0 0 20px #f0f0f2 !important;
+          box-shadow: 0 0 0 20px #f0f0f2 !important;
+}
 
+.margin-bottom {margin-bottom: 225px;}
 
 
 

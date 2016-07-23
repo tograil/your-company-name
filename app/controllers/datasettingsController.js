@@ -53,4 +53,10 @@ app.controller('DataSettings', ['$scope', '$state', function ($scope, $state) {
     ]
   };
 
+  $scope.colors = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
+
+  $scope.returnClass = function (colorModel) {
+    return colorModel;
+  }
+
 }]);

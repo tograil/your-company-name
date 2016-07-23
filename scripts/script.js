@@ -1,3 +1,10 @@
+// (function() {
+//   body = document.getElementsByTagName('body');
+//   chartBottom = document.getElementsByClassName('chart-bottom');
+//   chartBottom.style.width = "240px";
+// })();
+
+
 // Для INPUT:FILE
 $(function() {
   $(document).on('change', ':file', function() {
