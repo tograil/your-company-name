@@ -2,7 +2,8 @@
 
   <nav ng-controller="logoutController">
     <a class="brand pull-left" href="#">your <span>company</span> name</a>
-    <a class="log-out pull-right" href="#" ng-click="logout()">log out</a>
+    <a class="log-out pull-right" href="#" ng-show="false" ng-click="logout()">log out</a>
+    <a class="log-out pull-right" href="#" ng-show="true" ui-sref="registration">registration</a>
   </nav>
 
   <aside>

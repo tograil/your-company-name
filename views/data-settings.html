@@ -39,63 +39,12 @@
       </div>
     </form>
 
-    <div class="table">
+    <div class="table" ng-repeat="x in ['2016', '2015', '2014', '2013']">
       <table>
         <tbody class="text-center">
           <tr> <!-- YEAR -->
             <td class="text-medium text-left text-uppercase">year</td>
-            <td class="text-medium text-center" colspan="12">2016</td>
-          </tr>
-          <tr> <!-- MONTH -->
-            <td class="text-medium text-left text-uppercase">month</td>
-            <td>Jan. 16</td>
-            <td>Feb. 16</td>
-            <td>Mar. 16</td>
-            <td>Apr. 16</td>
-            <td>May. 16</td>
-            <td>Jun. 16</td>
-            <td>Jul. 16</td>
-            <td>Aug. 16</td>
-            <td>Sep. 16</td>
-            <td>Oct. 16</td>
-            <td>Nov. 16</td>
-            <td>Dec. 16</td>
-          </tr>
-
-          <tr> <!-- ACCUMULATE PLAN -->
-            <td class="for-select">
-              <div class="select">
-                <select>
-                  <option value="">{{accumulate.titlePlan}}</option>
-                  <option ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</option>
-                </select>
-              </div>
-            </td>
-            <td ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</td>
-          </tr>
-
-          <tr>  <!-- ACCUMULATE ACTUAL -->
-            <td class="for-select title">
-              <div class="select">
-                <select>
-                  <option value="">{{accumulate.titleActual}}</option>
-                  <option ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</option>
-                </select>
-              </div>
-            </td>
-            <td ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <div class="table">
-      <table>
-        <tbody class="text-center">
-          <tr> <!-- YEAR -->
-            <td class="text-medium text-left text-uppercase">year</td>
-            <td class="text-medium text-center" colspan="12">2015</td>
+            <td class="text-medium text-center" colspan="12">{{x}}</td>
           </tr>
           <tr> <!-- MONTH -->
             <td class="text-medium text-left text-uppercase">month</td>
