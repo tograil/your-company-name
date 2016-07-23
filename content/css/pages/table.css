@@ -201,13 +201,6 @@ div.date-pick span.data-label {
 .blue   {background-color: #bbdefb !important;}
 .pink   {background-color: #f8bbd0 !important;}
 
-.red:hover    {background-color: #ef9a9a !important;}
-.orange:hover {background-color: #ffcc80 !important;}
-.yellow:hover {background-color: #fff59d !important;}
-.green:hover  {background-color: #a5d6a7 !important;}
-.blue:hover   {background-color: #90caf9 !important;}
-.pink:hover   {background-color: #f48fb1 !important;}
-
 .chart-bottom {
   position: fixed;
   bottom: 0;
