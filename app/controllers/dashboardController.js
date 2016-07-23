@@ -19,6 +19,7 @@ app.directive('ngFiles', ['$parse', function ($parse) {
     $scope.readContactInfo = false;
     $scope.isUploadAvailable = false;
     $scope.users = [];
+    $scope.userName = "";
 
     dataService.getDashboard().success(function (data) {
         debugger;
@@ -31,7 +32,9 @@ app.directive('ngFiles', ['$parse', function ($parse) {
     var formdata = new FormData();
             $scope.getTheFiles = function ($files) {
                 angular.forEach($files, function (value, key) {
-                    formdata.append(key, value);
+                    formdata.append(key, value, {
+                        contentType: ''
+                    });
                 });
             };
 
@@ -42,7 +45,7 @@ app.directive('ngFiles', ['$parse', function ($parse) {
                     url: globalConstants.apiUrl +'/api/FileUpload/',
                     data: formdata,
                     headers: {
-                        'Content-Type': undefined
+                        'Content-Type': 'multipart/form-data'
                     }
                 };
 

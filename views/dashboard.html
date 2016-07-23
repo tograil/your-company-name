@@ -7,8 +7,8 @@
       <div class="title">At minima dignissimos repellendus molestias placeat, dolore, delectus pariatur. Facilis molestiae natus inventore ea amet deserunt mollitia omnis vel blanditiis excepturi iure repudiandae, molestias perferendis impedit asperiores numquam maiores id, atque similique. Nemo blanditiis, tenetur molestias assumenda!</div>
       <div class="group">
         <div class="select">
-          <select>
-            <option ng-repeat="user in users">{{user.userName}}</option>
+          <select ng-model="userName">
+            <option ng-repeat="user in users" value="user.userName">{{user.userName}}</option>
           </select>
         </div>
       </div>
