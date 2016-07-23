@@ -208,13 +208,19 @@ div.date-pick span.data-label {
 .blue:hover   {background-color: #90caf9 !important;}
 .pink:hover   {background-color: #f48fb1 !important;}
 
-/*.chart-bottom {
+.chart-bottom {
   position: fixed;
   bottom: 0;
+  width: -webkit-calc(100% - 260px);
+  width: -moz-calc(100% - 260px);
+  width: calc(100% - 260px);
   right: 20px;
-  box-shadow: 0 0 0 20px #f0f0f2 !important;
-}*/
+  -webkit-box-shadow: 0 0 0 20px #f0f0f2 !important;
+     -moz-box-shadow: 0 0 0 20px #f0f0f2 !important;
+          box-shadow: 0 0 0 20px #f0f0f2 !important;
+}
 
+.margin-bottom {margin-bottom: 225px;}
 
 
 
