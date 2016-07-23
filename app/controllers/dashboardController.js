@@ -14,7 +14,8 @@ app.directive('ngFiles', ['$parse', function ($parse) {
                 link: fn_link
             }
         } ])
-.controller('Dashboard', ['$scope', '$state', '$http', 'globalConstants','dataService', function ($scope, $state, $http, globalConstants, dataService) {
+.controller('Dashboard', ['$scope', '$state', '$http', 'globalConstants','dataService', 'authService', 
+function ($scope, $state, $http, globalConstants, dataService, authService) {
 
     $scope.readContactInfo = false;
     $scope.isUploadAvailable = false;
@@ -37,13 +38,14 @@ app.directive('ngFiles', ['$parse', function ($parse) {
             };
 
             $scope.uploadFiles = function () {
-
+                
                 var request = {
                     method: 'POST',
                     url: globalConstants.apiUrl +'api/FileUpload/',
                     data: formdata,
                     headers: {
-                        'Content-Type': undefined
+                        'Content-Type': undefined,
+                        'Authorization': 'Bearer ' + authService.authentication.token
                     }
                 };
 
