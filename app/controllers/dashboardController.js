@@ -32,9 +32,7 @@ app.directive('ngFiles', ['$parse', function ($parse) {
     var formdata = new FormData();
             $scope.getTheFiles = function ($files) {
                 angular.forEach($files, function (value, key) {
-                    formdata.append(key, value, {
-                        contentType: ''
-                    });
+                    formdata.append(key, value);
                 });
             };
 
@@ -42,10 +40,10 @@ app.directive('ngFiles', ['$parse', function ($parse) {
 
                 var request = {
                     method: 'POST',
-                    url: globalConstants.apiUrl +'/api/FileUpload/',
+                    url: globalConstants.apiUrl +'api/FileUpload/',
                     data: formdata,
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        'Content-Type': undefined
                     }
                 };
 
