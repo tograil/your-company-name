@@ -23,8 +23,8 @@
         <td>{{doc.dateOfPost | date:'yyyy-MM-dd HH:mm' }}</td>
         <td>{{doc.user}}</td>
         <td class="buttons-group">
-          <input type="button" value="read &amp; update" name="button" ng-click="showButtons();">
-          <input type="button" value="download">
+          <input type="button" value="read" name="button" ng-click="showButtons(doc.id);" ui-sref="main.documents.settings({documentId: doc.id})">
+          <input type="button" value="download" ng-hide="true">
         </td>
       </tr>
     </tbody>

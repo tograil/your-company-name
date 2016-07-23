@@ -16,7 +16,8 @@ function dataService($http, globalConstants, authService) {
         getRents: getRents,
         setReadRent: setReadRent,
         getEndUsers: getEndUsers,
-        getDocuments: getDocuments
+        getDocuments: getDocuments,
+        getDocumentPlanData: getDocumentPlanData
     };
 
     return service;
@@ -70,6 +71,14 @@ function dataService($http, globalConstants, authService) {
                 'Authorization': 'Bearer ' + authService.authentication.token
             }});
     }
+
+    function getDocumentPlanData(id) {
+        var subUrl = 'api/document/plan/';
+        return $http.get(urlBase + subUrl + id, { headers: {
+            'Authorization': 'Bearer ' + authService.authentication.token
+        }});
+    }
+
     function postContact(data) {
         var subUrl = 'api/customer/';
         return post(urlBase + subUrl, data);

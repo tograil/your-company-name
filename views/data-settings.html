@@ -11,9 +11,9 @@
           <tr>
             <td class="for-select" colspan="13">
               <div class="select">
-                <select>
-                  <option value="">Subject &amp; Description</option>
-                  <option ng-repeat="sub in subject">{{sub.desc}}</option>
+                <select ng-model="selectedItem">
+                  <option value="none">Subject &amp; Description</option>
+                  <option value="sub.index" ng-repeat="sub in subject">{{sub.desc}}</option>
                 </select>
               </div>
             </td>

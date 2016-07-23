@@ -25,7 +25,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           onEnter: function() {window.scrollTo(0,0);}
         })
         .state('main.documents.settings', {
-          url: '-settings',
+          url: '-settings/:documentId',
           templateUrl: 'views/data-settings.html',
           onEnter: function() {window.scrollTo(0,0);}
         })

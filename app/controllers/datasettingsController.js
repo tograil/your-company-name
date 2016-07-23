@@ -1,7 +1,8 @@
 var app = angular.module('app');
 
 'use strict';
-app.controller('DataSettings', ['$scope', '$state', function ($scope, $state) {
+app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService',
+  function ($scope, $state, $stateParams, dataService) {
 
   $scope.subject = [
     {desc: '01 - GENERAL MOBILIZATION & DEMOBILIZATION - Structure ‏1'},
@@ -58,5 +59,28 @@ app.controller('DataSettings', ['$scope', '$state', function ($scope, $state) {
   $scope.returnClass = function (colorModel) {
     return colorModel;
   }
+    $scope.data = {};
+
+
+
+    dataService.getDocumentPlanData($stateParams.documentId).success(function (data) {
+      $scope.data = data;
+
+      $scope.subject = [];
+
+      for(var i=3; i<data.planItems.length; i++)
+      {
+        $scope.subject.push({
+          index: i,
+          desc: data.planItems[i].subject
+        });
+      }
+
+      $scope.selectedItem = $scope.subject[0];
+    });
+    
+    $scope.changed = function () {
+      
+    };
 
 }]);
