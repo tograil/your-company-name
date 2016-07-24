@@ -92,8 +92,8 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
         $scope.subject.push({
           index: i,
           desc: data[i].subject,
-          plan: getData(data[i].planDataItems),
-          actual: getData(data[i].actualDataItems)
+          plan: getData(data[i].plan.planItems),
+          actual: getData(data[i].actual.actualItems)
         });
       }
 
