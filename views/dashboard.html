@@ -19,7 +19,7 @@
       <div class="group">
         <input type="button" ng-click="uploadFiles()" value="Upload" > <!-- Кнопка для загрузки файла -->
       </div>
-      <div class="status-msg">Some status text message</div>
+      <div class="status-msg" ng-show="fileUploadSuccess">{{fileUploadMessage}}</div>
     </div>
 
     <form class="filter" novalidate>

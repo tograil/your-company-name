@@ -31,12 +31,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
           onEnter: function() {window.scrollTo(0,0);}
         })
         .state('main.documents.plan', {
-          url: '-plan',
+          url: '-plan/:documentId',
           templateUrl: 'views/data-plan.html',
           onEnter: function() {window.scrollTo(0,0);}
         })
         .state('main.documents.actual', {
-          url: '-actual',
+          url: '-actual/:documentId',
           templateUrl: 'views/data-actual.html',
           onEnter: function() {window.scrollTo(0,0);}
         })

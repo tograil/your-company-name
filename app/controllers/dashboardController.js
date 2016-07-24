@@ -22,6 +22,17 @@ function ($scope, $state, $http, globalConstants, dataService, authService) {
     $scope.users = [];
     $scope.userName = "";
 
+    $scope.fileUploadSuccess = false;
+    $scope.fileUploadMessage = "";
+
+    function reloadDocuments() {
+        dataService.getDocuments().success(function (data) {
+            $scope.documents = data;
+        });
+    }
+
+    reloadDocuments();
+
     dataService.getDashboard().success(function (data) {
         debugger;
         $scope.isUploadAvailable = data.isUploadAvailable;
@@ -51,7 +62,9 @@ function ($scope, $state, $http, globalConstants, dataService, authService) {
 
                 $http(request)
                     .success(function (d) {
-                        alert(d);
+                        $scope.fileUploadMessage = d;
+                        $scope.fileUploadSuccess = true;
+                        reloadDocuments();
                     })
                     .error(function () {
                     });
