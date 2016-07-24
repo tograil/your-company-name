@@ -80,6 +80,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       return data;
     }
 
+    $scope.$parent.documentId = $stateParams.documentId;
 
 
     dataService.getDocumentPlanData($stateParams.documentId).success(function (data) {
@@ -87,13 +88,13 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
       $scope.subject = [];
 
-      for(var i=0; i<data.length; i++)
+      for(var i=0; i<data.settingItems.length; i++)
       {
         $scope.subject.push({
           index: i,
-          desc: data[i].subject,
-          plan: getData(data[i].plan.planItems),
-          actual: getData(data[i].actual.actualItems)
+          desc: data.settingItems[i].subject,
+          plan: getData(data.settingItems[i].planDataItems),
+          actual: getData(data.settingItems[i].actualDataItems)
         });
       }
 
