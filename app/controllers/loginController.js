@@ -16,7 +16,7 @@ app.controller('loginController', ['$scope', '$state', 'authService', function (
 
        authService.login($scope.loginData).then(function (response) {
                 $scope.invalid = false;
-                $state.go('main.dashboard');
+                $state.go('main.dashboard.list');
 
             },
             function (err) {
@@ -24,7 +24,7 @@ app.controller('loginController', ['$scope', '$state', 'authService', function (
                 $scope.message = err.error_description;
             });
 
-        $state.go('main.login');
+        $state.go('main.dashboard.list');
     };
 
     $scope.validateError = function(){

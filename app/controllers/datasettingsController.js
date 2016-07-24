@@ -80,6 +80,8 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       return data;
     }
 
+    $scope.$parent.documentId = $stateParams.documentId;
+
 
     dataService.getDocumentPlanData($stateParams.documentId).success(function (data) {
       $scope.data = data;

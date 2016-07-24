@@ -3,12 +3,11 @@
 
     <div class="table" ng-hide="hideButtons">
       <div class="group">
-        <input type="button" value="Settings" ui-sref="main.documents.settings" ng-click="">
-        <!--<input type="button" value="Plan" ui-sref="main.documents.plan">
-        <input type="button" value="Actual" ui-sref="main.documents.actual">-->
+        <input type="button" value="Settings" ui-sref="main.documents.settings({documentId: documentId})" ng-click="">
+        <input type="button" value="Plan" ui-sref="main.documents.plan({documentId: documentId})">
+        <input type="button" value="Actual" ui-sref="main.documents.actual({documentId: documentId})">
       </div>
     </div>
-
 
     <div ui-view></div>
 
