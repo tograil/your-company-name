@@ -87,7 +87,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
       $scope.subject = [];
 
-      for(var i=0; i<data.settingItems.length; i++)
+      for(var i=0; i<data.length; i++)
       {
         $scope.subject.push({
           index: i,
