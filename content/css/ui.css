@@ -279,7 +279,7 @@ form hr {
 
 .group .select select {
   display: block;
-  width: 100%;
+  width: calc(100% + 80px);
   height: 100%;
   line-height: 100%;
   padding: 0 10px;

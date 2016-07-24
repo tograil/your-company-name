@@ -1,6 +1,6 @@
 <div ng-controller="DataSettings">
 
-  <div class="margin-bottom">
+  <div>
     <form class="filter" novalidate>
       <input class="pull-left" type="search" placeholder="search" ng-model="search">
     </form>
@@ -11,8 +11,7 @@
           <tr>
             <td class="for-select" colspan="13">
               <div class="select">
-                <select ng-model="selectedItem"  ng-options="p.desc for p in subject track by p.index" ng-change="changed()">
-
+                <select ng-model="selectedItem" ng-options="p.desc for p in subject track by p.index" ng-change="changed()">
                 </select>
               </div>
             </td>
@@ -24,21 +23,21 @@
     <!--<form class="table">
       <div class="group date-pick">
         <span class="data-label">C:</span>
-        <span class="date-pick">
-            <datepicker date-format="MMMM dd, yyyy">
-              <input ng-model="date1" type="text"/>
-            </datepicker>
-          </span>
+        <span class="select">
+          <select>
+            <option value="">123</option>
+          </select>
+        </span>
         <span class="data-label">ДО:</span>
-        <span class="date-pick">
-            <datepicker date-format="MMMM dd, yyyy">
-              <input ng-model="date2" type="text"/>
-            </datepicker>
-          </span>
+        <span class="select">
+          <select>
+            <option value="">123</option>
+          </select>
+        </span>
       </div>
     </form>-->
 
-    <div class="table">
+    <div class="table x-scroll">
       <table>
         <tbody class="text-center">
           <tr>
@@ -70,7 +69,7 @@
             <!-- ACCUMULATE ACTUAL -->
             <td class="for-select title">
               <div class="select">
-                <select  ng-model="actualIndex" ng-options="p.title for p in actual track by p.index" ng-change="redrawChart()">
+                <select ng-model="actualIndex" ng-options="p.title for p in actual track by p.index" ng-change="redrawChart()">
                 </select>
               </div>
             </td>
@@ -89,5 +88,7 @@
   <div class="table">
     <canvas width="950px" height="500px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colors="colors"></canvas>
   </div>
+
+  <div class="loading" ng-show="false"></div>
 
 </div>
