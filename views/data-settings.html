@@ -60,7 +60,7 @@
             </td>
             <td class="for-select">
               <div class="select">
-                <select ng-model="colorAccPlan" ng-options="color for color in colors track by $index"></select>
+                <select ng-model="colorAccPlan" ng-options="color for color in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
             <td ng-repeat="value in plan[planIndex.index].data track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
@@ -69,13 +69,13 @@
             <!-- ACCUMULATE ACTUAL -->
             <td class="for-select title">
               <div class="select">
-                <select ng-model="actualIndex" ng-options="p.title for p in actual track by p.index" ng-change="redrawChart()">
+                <select ng-model="actualIndex" ng-options="a.title for a in actual track by a.index" ng-change="redrawChart()">
                 </select>
               </div>
             </td>
             <td class="for-select">
               <div class="select">
-                <select ng-model="colorAccActual" ng-options="color for color in colors track by $index"></select>
+                <select ng-model="colorAccActual" ng-options="color2 for color2 in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
             <td ng-repeat="value in actual[actualIndex.index].data  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
@@ -86,7 +86,7 @@
   </div>
 
   <div class="table">
-    <canvas width="950px" height="500px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colors="colors"></canvas>
+    <canvas width="950px" height="500px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colours="grColors"></canvas>
   </div>
 
   <div class="loading" ng-show="false"></div>

@@ -53,12 +53,24 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
     ];
 
+   
+
     $scope.planIndex = $scope.plan[0];
     $scope.actualIndex = $scope.actual[0];
 
   $scope.colors = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
+  $scope.colors2 = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
   $scope.colorAccPlan = 'red';
   $scope.colorAccActual = 'orange';
+
+    var colorsGraph =  {
+      red: "#ffcdd2" ,
+      orange: "#ffe0b2",
+      yellow: "#fff59d",
+      green:  "#c8e6c9",
+      blue:   "#bbdefb",
+      pink:   "#f8bbd0"
+    }
 
   $scope.returnClass = function (colorModel) {
     return colorModel;
@@ -101,6 +113,8 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.yearsGrouped = groupYears($scope.data.years);
       $scope.monthes = $scope.data.monthes;
 
+      $scope.selectedItem = $scope.subject[0];
+      $scope.changed();
       $scope.labels = returnLabels($scope.monthes, $scope.years )
     });
 
@@ -142,21 +156,21 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.plan = selectedItem.plan;
       $scope.actual = selectedItem.actual;
 
-      redrawChart(selectedItem.plan, selectedItem.actual);
-    };
+      $scope.planIndex = selectedItem.plan[1];
+      $scope.actualIndex = selectedItem.actual[1];
 
-    function redrawChart(plan, actual) {
-      $scope.series = [ plan.title, actual.title ];
-      $scope.data = [ plan.data, actual.data ];
-    }
+      $scope.redrawChart();
+    };
 
     $scope.redrawChart = function () {
       $scope.series = [ $scope.planIndex.title, $scope.actualIndex.title ];
       $scope.data = [ $scope.planIndex.data, $scope.actualIndex.data ];
+      $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
     }
 
     $scope.labels = [];
     $scope.series = [];
     $scope.data = [];
+    $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
 
 }]);
