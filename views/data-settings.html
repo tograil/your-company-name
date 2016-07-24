@@ -11,9 +11,8 @@
           <tr>
             <td class="for-select" colspan="13">
               <div class="select">
-                <select ng-model="selectedItem">
-                  <option value="none">Subject &amp; Description</option>
-                  <option value="sub.index" ng-repeat="sub in subject">{{sub.desc}}</option>
+                <select ng-model="selectedItem"  ng-options="p.desc for p in subject track by p.index" ng-change="changed()">
+
                 </select>
               </div>
             </td>
@@ -39,77 +38,56 @@
       </div>
     </form>
 
-    <div class="table" ng-repeat="x in ['2016', '2015', '2014', '2013']">
+    <div class="table">
       <table>
         <tbody class="text-center">
           <tr>
             <!-- YEAR -->
             <td colspan="2" class="text-medium text-left text-uppercase">year</td>
-            <td class="text-medium text-center" colspan="12">{{x}}</td>
+            <td class="text-medium text-center" colspan="{{yearsGrouped[x]}}" ng-repeat="x in yearsKeys">{{x}}</td>
           </tr>
           <tr>
             <!-- MONTH -->
             <td colspan="2" class="text-medium text-left text-uppercase">month</td>
-            <td>Jan. 16</td>
-            <td>Feb. 16</td>
-            <td>Mar. 16</td>
-            <td>Apr. 16</td>
-            <td>May. 16</td>
-            <td>Jun. 16</td>
-            <td>Jul. 16</td>
-            <td>Aug. 16</td>
-            <td>Sep. 16</td>
-            <td>Oct. 16</td>
-            <td>Nov. 16</td>
-            <td>Dec. 16</td>
+            <td ng-repeat="month in monthes track by $index">{{month}}</td>
           </tr>
           <tr>
             <!-- ACCUMULATE PLAN -->
             <td class="for-select">
               <div class="select">
-                <select>
-                  <option value="">{{accumulate.titlePlan}}</option>
-                  <option ng-repeat="accPlan in accumulate.Plan">{{accPlan.month}}</option>
+                <select ng-model="planIndex" ng-options="p.title for p in plan track by p.index"  ng-change="redrawChart()">
                 </select>
               </div>
             </td>
             <td class="for-select">
               <div class="select">
-                <select ng-model="colorAccPlan">
-                  <option value="">Color</option>
-                  <option ng-repeat="color in colors">{{color}}</option>
-                </select>
+                <select ng-model="colorAccPlan" ng-options="color for color in colors track by $index"></select>
               </div>
             </td>
-            <td ng-repeat="accPlan in accumulate.Plan" ng-class="returnClass(colorAccPlan);">{{accPlan.month}}</td>
+            <td ng-repeat="value in plan[planIndex.index].data track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
           </tr>
           <tr>
             <!-- ACCUMULATE ACTUAL -->
             <td class="for-select title">
               <div class="select">
-                <select>
-                  <option value="">{{accumulate.titleActual}}</option>
-                  <option ng-repeat="accActual in accumulate.Actual">{{accActual.month}}</option>
+                <select  ng-model="actualIndex" ng-options="p.title for p in actual track by p.index" ng-change="redrawChart()">
                 </select>
               </div>
             </td>
             <td class="for-select">
               <div class="select">
-                <select ng-model="colorAccActual">
-                  <option value="">Color</option>
-                  <option ng-repeat="color in colors">{{color}}</option>
-                </select>
+                <select ng-model="colorAccActual" ng-options="color for color in colors track by $index"></select>
               </div>
             </td>
-            <td ng-repeat="accActual in accumulate.Actual" ng-class="returnClass(colorAccActual);">{{accActual.month}}</td>
+            <td ng-repeat="value in actual[actualIndex.index].data  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="table chart-bottom" ng-controller="LineCtrl">
-    <canvas width="950px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>
+  <div class="table">
+    <canvas width="950px" height="500px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colors="colors"></canvas>
   </div>
 
 </div>
