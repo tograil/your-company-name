@@ -6,9 +6,13 @@
 .table-view .upload-file {
   margin-bottom: 20px;
   padding: 15px;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+          box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
 
 .table-view .upload-file .title {
   font-family: 'Roboto';
@@ -23,16 +27,22 @@
   padding: 5px;
   text-align: center;
   color: #fff;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
   background-color: #57c131;}
 
 .table-view .filter {
   height: 64px;
   margin-bottom: 20px;
   padding: 15px;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+          box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
 
 .table-view input[type='text'],
 .table-view input[type='search'] {
@@ -40,7 +50,9 @@
   height: 34px;
   padding: 0 10px;
   border: 2px solid #ddd;
-  border-radius: 3px;}
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;}
 
 .table-view input[type='text']:hover,
 .table-view input[type='text']:focus,
@@ -63,9 +75,13 @@
 
 .table-view .table {
   padding: 15px;
-  border-radius: 4px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+     -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .05);
+          box-shadow: 0 0 7px rgba(0, 0, 0, .05);}
 
 .table-view table {
   width: 100%;
@@ -95,13 +111,17 @@
   padding-right: 40px;
   border: none;
   overflow: hidden;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
   background: url(../../images/form-ctrl/arrow-dowm.png) no-repeat right center/34px 34px;
   background-color: #fff;}
 
 .table-view table tr td.for-select .select select {
   line-height: 100%;
   display: block;
+  width: -webkit-calc(100% + 80px);
+  width: -moz-calc(100% + 80px);
   width: calc(100% + 80px);
   height: 100%;
   margin: 0;
@@ -117,16 +137,28 @@
   border: none;}
 
 .table-view table tbody tr td.month {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   text-align: center;
   background-color: transparent !important;}
 
 .table-view table tbody tr td .rotate-title {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   text-align: center;}
 
 .table-view table tbody tr.rotate td {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   text-align: left;
   height: 120px;
   width: 10px;
@@ -155,7 +187,9 @@
   text-transform: uppercase;
   color: #fff;
   border: none;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
   background-color: #57c131;}
 
 .table-view table tbody tr td input:hover,
@@ -176,6 +210,7 @@ div.date-pick span {
   vertical-align: middle;
   margin-right: 15px;
 }
+
 div.date-pick span.data-label {
   line-height: 34px;
   text-align: left;
@@ -184,6 +219,8 @@ div.date-pick span.data-label {
   font-weight: 500;
   margin-right: 5px;
 }
+
+div.date-pick span.select {width: 150px;}
 
 .table .group:last-child {margin-bottom: 0;}
 
@@ -215,9 +252,19 @@ div.date-pick span.data-label {
 
 .margin-bottom {margin-bottom: 225px;}
 
+.x-scroll {
+  overflow-x: scroll;
+}
 
-
-
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: url(../../images/loading.gif) no-repeat center center, rgba(0,0,0,.85);
+}
 
 
 
