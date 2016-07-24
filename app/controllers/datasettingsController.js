@@ -53,23 +53,28 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
     ];
 
-   
+
 
     $scope.planIndex = $scope.plan[0];
     $scope.actualIndex = $scope.actual[0];
 
-  $scope.colors = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
-  $scope.colors2 = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
+  $scope.colors = ['brown', 'red', 'orange', 'yellow', 'green', 'aqua', 'blue', 'ocean', 'violet', 'pink', 'grey'];
+  $scope.colors2 = ['brown', 'red', 'orange', 'yellow', 'green', 'aqua', 'blue', 'ocean', 'violet', 'pink', 'grey'];
   $scope.colorAccPlan = 'red';
   $scope.colorAccActual = 'orange';
 
-    var colorsGraph =  {
-      red: "#ffcdd2" ,
-      orange: "#ffe0b2",
-      yellow: "#fff59d",
-      green:  "#c8e6c9",
-      blue:   "#bbdefb",
-      pink:   "#f8bbd0"
+    var colorsGraph = {
+      brown: "#A41C1C",
+      red: "#FF1C1C",
+      orange: "#FFA51C",
+      yellow: "#FFFF1C",
+      green: "#1CFF1C",
+      aqua: "#1CFFFF",
+      blue: "#5E94EB",
+      ocean: "#1C1CFF",
+      violet: "#A51CFF",
+      pink: "#FF1CFF",
+      grey: "#6E6E6E"
     }
 
   $scope.returnClass = function (colorModel) {
