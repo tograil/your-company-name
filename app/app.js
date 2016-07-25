@@ -45,8 +45,8 @@ var app = angular.module('app', ['angular-ellipses', 'ui.router', 'LocalStorageM
 
 
 app.constant('globalConstants', {
-  //apiUrl: "http://localhost:51925/",
-  apiUrl: "http://vba-excel-backend.azurewebsites.net/",
+  apiUrl: "http://localhost:51925/",
+  //apiUrl: "http://vba-excel-backend.azurewebsites.net/",
   landingId: "admin",
   doctorPrescription: [ "Unsure", "Yes", "No" ]
 });

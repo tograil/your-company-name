@@ -1,25 +1,25 @@
 <div class="window">
 
-  <div class="logotype">[ Good <span>Night</span> Medical ]</div>
+  <div class="logotype">[ Your <span>Company</span> Name ]</div>
 
   <div class="form" ng-controller="regCtrl">
 
-    <div class="title">Enter Your Data</div>
+    <div class="title">Enter User Data</div>
 
     <form name="regForm" ng-submit="submitReg();" novalidate>
 
-      <input name="userName" type="text" placeholder="login"
+      <input name="userName" type="text" placeholder="Email"
              ng-class="returnClass(regForm.userName.$touched, regForm.userName.$invalid, 'alert')"
-             ng-model="userName" required>
+             ng-model="registrationModel.userName" required>
 
-      <input name="password" type="password" placeholder="password"
+      <input name="password" type="password" placeholder="Password"
              ng-class="returnClass(regForm.password.$touched, regForm.password.$invalid, 'alert')"
-             ng-model="password"
+             ng-model="registrationModel.password"
              ng-pattern="/^[A-Za-z0-9_-]{6,18}$/" required>
 
-      <input name="repeatPassword" type="password" placeholder="repeat password"
+      <input name="repeatPassword" type="password" placeholder="Repeat Password"
              ng-class="returnClass(regForm.repeatPassword.$touched, regForm.repeatPassword.$invalid,'alert')"
-             ng-model="passwordRe"
+             ng-model="registrationModel.repeatPassword"
              ng-pattern="/^[A-Za-z0-9_-]{6,18}$/" required>
 
       <div class="validate-msg" ng-if="regErrorMsg();">
@@ -27,8 +27,11 @@
         <div ng-if="showErrorMsg(regForm.password.$touched, regForm.password.$invalid);">{{errorPasswordNameMsg}}</div>
         <div ng-if="showErrorMsg(regForm.repeatPassword.$touched, regForm.repeatPassword.$invalid);">{{errorRepeatPasswordMsg}}</div>
       </div>
-
-      <input type="submit" value="log in">
+      <div class="select">
+        <select ng-model="registrationModel.role" ng-options="role for role in roles">
+        </select>
+      </div>
+      <input type="submit" value="Submit">
 
     </form>
 

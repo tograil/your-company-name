@@ -4,11 +4,14 @@
 
   var controllerId = 'regCtrl';
 
-  angular.module('app').controller(controllerId, ['$scope', formsController]);
+  angular.module('app').controller(controllerId, ['$scope','$state', 'authService', formsController]);
 
-  function formsController($scope){
+  function formsController($scope, $state, authService){
 
     $scope.formInvalid = false;
+
+    $scope.roles = ["User", "Superwiser"];
+    $scope.registrationModel = {userName: "", password: "", repeatPassword:"", role: "User"};
 
     $scope.errorUserNameMsg = 'User Name error message';
     $scope.errorPasswordNameMsg = 'Password Name error message';
@@ -37,6 +40,12 @@
       if ($scope.regForm.$invalid) {
         $scope.formInvalid = true;
       }
+
+      authService.saveRegistration($scope.registrationModel).then(function (response) {
+           $state.go('main.dashboard.list');
+      },function (err) {
+            alert(err);
+          });
     };
   }
 
