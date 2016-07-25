@@ -16,7 +16,7 @@ form > :last-child {margin-bottom: 0;}
 
 /*
  * Separate (hr)
- */
+ */z
 
 form hr {
   height: 1px;
@@ -274,6 +274,7 @@ form hr {
   height: 34px;
   border: 2px solid #ddd;
   border-radius: 3px;
+  overflow: hidden;
   background: url(../images/form-ctrl/arrow-dowm.png) no-repeat right center/34px 34px;
   background-color: #fff;}
 

@@ -53,12 +53,27 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
     ];
 
+
+
     $scope.planIndex = $scope.plan[0];
     $scope.actualIndex = $scope.actual[0];
 
-  $scope.colors = ['red', 'orange', 'yellow', 'green', 'blue', 'pink'];
+  $scope.colors = ['brown', 'red', 'yellow', 'green', 'aqua', 'blue', 'ocean', 'violet', 'grey'];
+  $scope.colors2 = ['brown', 'red', 'yellow', 'green', 'aqua', 'blue', 'ocean', 'violet', 'grey'];
   $scope.colorAccPlan = 'red';
-  $scope.colorAccActual = 'orange';
+  $scope.colorAccActual = 'blue';
+
+    var colorsGraph = {
+      brown: "#A41C1C",
+      red: "#FF1C1C",
+      yellow: "#FFFF1C",
+      green: "#1CFF1C",
+      aqua: "#1CFFFF",
+      blue: "#5E94EB",
+      ocean: "#1C1CFF",
+      violet: "#A51CFF",
+      grey: "#6E6E6E"
+    }
 
   $scope.returnClass = function (colorModel) {
     return colorModel;
@@ -102,6 +117,8 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.yearsGrouped = groupYears($scope.data.years);
       $scope.monthes = $scope.data.monthes;
 
+      $scope.selectedItem = $scope.subject[0];
+      $scope.changed();
       $scope.labels = returnLabels($scope.monthes, $scope.years )
     });
 
@@ -143,21 +160,21 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.plan = selectedItem.plan;
       $scope.actual = selectedItem.actual;
 
-      redrawChart(selectedItem.plan, selectedItem.actual);
-    };
+      $scope.planIndex = selectedItem.plan[1];
+      $scope.actualIndex = selectedItem.actual[1];
 
-    function redrawChart(plan, actual) {
-      $scope.series = [ plan.title, actual.title ];
-      $scope.data = [ plan.data, actual.data ];
-    }
+      $scope.redrawChart();
+    };
 
     $scope.redrawChart = function () {
       $scope.series = [ $scope.planIndex.title, $scope.actualIndex.title ];
       $scope.data = [ $scope.planIndex.data, $scope.actualIndex.data ];
+      $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
     }
 
     $scope.labels = [];
     $scope.series = [];
     $scope.data = [];
+    $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
 
 }]);

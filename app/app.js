@@ -51,6 +51,16 @@ app.constant('globalConstants', {
   doctorPrescription: [ "Unsure", "Yes", "No" ]
 });
 
+app.config(function (ChartJsProvider) {
+  // Configure all charts
+  ChartJsProvider.setOptions({
+    legend: {
+      display: true
+
+    }
+  });
+});
+
 app.controller('Ctrl', function($scope, $http) {
 
   var view = 0;
