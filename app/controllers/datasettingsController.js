@@ -6,51 +6,25 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
 
 
+    $scope.actualVisible = true;
+    $scope.planVisible = true;
+    
 
   $scope.subject = [
-    {desc: '01 - GENERAL MOBILIZATION & DEMOBILIZATION - Structure ‏1'},
-    {desc: '02 - CHAPTER 01 - Main Breakwater Extension - MBE'},
-    {desc: '03 - CHAPTER 02 - Lee Revetment - LR (0-1032) '},
-    {desc: '04 - CHAPTER 03 - East Revetment (Rubble Mound) - ER ®'},
-    {desc: '05 - CHAPTER 04 - East Revetment (Caisson) and East Breakwater - ER (C) & EBW'},
-    {desc: '06 - CHAPTER 05 - Kishon Breakwater - KBW'},
-    {desc: '07 - CHAPTER 06 - Navigation Aids'},
-    {desc: '08 - CHAPTER 01 - Quay 6 -800m'},
-    {desc: '09 - CHAPTER 02 - Quay 7 -450m'},
-    {desc: '10 - CHAPTER 03 - Quay 8 -720m'},
-    {desc: '‎11 - DREDGING, RECLAMATION - Structure ‏5'},
-    {desc: '12 - AREA DEVELOPMENT ‏- Structure ‏6'},
-    {desc: '‎13 - DAY WORK & STAND BY - Structure ‏7'},
-    {desc: '14 - TOTAL By Months'}
+
   ];
+
+
+   $scope.monthes = [];
 
     $scope.selectedItem = $scope.subject[0];
   $scope.plan = [
-    {
-      title: 'Plan',
-      data: [ '9 367' , '28 365' , '47 479', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-      index: 0
-    } ,
-    {
-      title: 'AccumulatedPlan',
-      data: [ '9 367' , '28 365ss' , '47 479sss', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-      index: 1
 
-    }
   ];
 
 
     $scope.actual = [
-      {
-        title: 'Plan',
-        data: [ '9 367' , '28 365' , '47 479', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-        index: 0,
-      } ,
-      {
-        title: 'AccumulatedPlan',
-        data: [ '9 367' , '28 365ss' , '47 479sss', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-        index: 1
-      }
+    
     ];
 
 
@@ -120,6 +94,13 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.selectedItem = $scope.subject[0];
       $scope.changed();
       $scope.labels = returnLabels($scope.monthes, $scope.years )
+
+      $scope.monthes = [];
+
+      for(var i=0; i< $scope.labels.length; i++)
+      {
+        
+      }
     });
 
     function returnLabels(monthes, years) {

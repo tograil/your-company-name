@@ -20,29 +20,34 @@
       </table>
     </div>
 
-    <!--<form class="table">
+    <form class="table" >
       <div class="group date-pick">
-        <span class="data-label">C:</span>
+        <span class="data-label">From:</span>
         <span class="select">
           <select>
             <option value="">123</option>
           </select>
         </span>
-        <span class="data-label">ДО:</span>
+        <span class="data-label">To:</span>
         <span class="select">
           <select>
             <option value="">123</option>
           </select>
         </span>
       </div>
-    </form>-->
+    </form>
 
   <div class="table x-scroll">
     <table>
       <tr>
-        <td ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]">
+        <td>
           <div class="group">
-            <input class="" type="button" value="{{x}} - hide" style="width: 100%;">
+            <input class="" type="button" value="{{planIndex.title}} - {{planVisible ? 'Hide' : 'Show'}}" style="width: 100%;" ng-click="planVisible = !planVisible;">
+          </div>
+        </td>
+        <td>
+          <div class="group">
+            <input class="" type="button" value="{{actualIndex.title}} - {{actualVisible ? 'Hide' : 'Show'}}" style="width: 100%;"  ng-click="actualVisible = !actualVisible;">
           </div>
         </td>
       </tr>
@@ -62,7 +67,7 @@
             <td colspan="2" class="text-medium text-left text-uppercase">month</td>
             <td ng-repeat="month in monthes track by $index">{{month}}</td>
           </tr>
-          <tr>
+          <tr ng-show="planVisible">
             <!-- ACCUMULATE PLAN -->
             <td class="for-select">
               <div class="select">
@@ -77,7 +82,7 @@
             </td>
             <td ng-repeat="value in plan[planIndex.index].data track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
           </tr>
-          <tr>
+          <tr ng-show="actualVisible">
             <!-- ACCUMULATE ACTUAL -->
             <td class="for-select title">
               <div class="select">
