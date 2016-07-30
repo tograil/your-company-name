@@ -163,17 +163,17 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
       if(count > 0) {
 
-        if (count < $scope.years.length - startIndex) {
+        if (count >= $scope.years.length - startIndex) {
           count = $scope.years.length - startIndex;
         }
 
-        count += startIndex;
+        var pos = count + startIndex;
 
 
-        var yearsBase = $scope.years.slice(startIndex, count);
+        var yearsBase = $scope.years.slice(startIndex, pos);
         $scope.years = yearsBase;
         $scope.yearsGrouped = groupYears(yearsBase);
-        $scope.monthes = $scope.data.monthes.slice(startIndex, count);
+        $scope.monthes = $scope.data.monthes.slice(startIndex, pos);
       }
 
       $scope.changed();
