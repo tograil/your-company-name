@@ -109,7 +109,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.acceptFilter = function () {
         fillForm($scope.startPoint.index, $scope.timeline.amount);
         fillData($scope.startPoint.index, $scope.timeline.amount);
-
+        $scope.redrawChart();
       }
 
       for(var i=0; i<data.settingItems.length; i++)
@@ -248,13 +248,13 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
     $scope.redrawChart = function () {
       $scope.series = [ $scope.planIndex.title, $scope.actualIndex.title ];
-      $scope.dataDraw = [ $scope.planIndex.data, $scope.actualIndex.data ];
+      $scope.dataDraw = [ $scope.planIndex.filteredData, $scope.actualIndex.filteredData ];
       $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
     }
 
     $scope.labels = [];
     $scope.series = [];
-    $scope.data = [];
+    $scope.dataDraw = [];
     
     $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
 
