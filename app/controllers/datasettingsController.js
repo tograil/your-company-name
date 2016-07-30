@@ -101,9 +101,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
       $scope.timeline = $scope.timelineDropdown[0];
       
-      $scope.acceptFilter = function () {
-        fillForm($scope.startPoint.index, $scope.timeline.amount);
-      }
+      
 
       for(var i=0; i<data.settingItems.length; i++)
       {
@@ -114,8 +112,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
           actual: getData(data.settingItems[i].actualDataItems)
         });
       }
-
-      $scope.selectedItem = $scope.subject[0];
+      $scope.selectedItem = $scope.subject.length;
 
 
 
@@ -131,7 +128,6 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
           month: $scope.monthes[i],
           index: i
         });
-
         $scope.startPoint = $scope.monthesYearsDropdown[0];
       }
     });
