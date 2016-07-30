@@ -76,6 +76,34 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.data = data;
 
       $scope.subject = [];
+      $scope.monthesYearsDropdown = [];
+      $scope.timelineDropdown = [
+        {
+          title: '6 monthes',
+          amount: 6
+        },
+        {
+          title: '1 years',
+          amount: 12
+        },
+        {
+          title: '2 years',
+          amount: 24
+        },
+        {
+          title: '3 years',
+          amount: 36
+        },
+        {
+          title: '4 years',
+          amount: 48
+        }];
+
+      $scope.timeline = $scope.timelineDropdown[0];
+      
+      $scope.acceptFilter = function () {
+        fillForm($scope.startPoint.index, $scope.timeline.amount);
+      }
 
       for(var i=0; i<data.settingItems.length; i++)
       {
@@ -87,19 +115,24 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
         });
       }
 
-      $scope.years = $scope.data.years;
-      $scope.yearsGrouped = groupYears($scope.data.years);
-      $scope.monthes = $scope.data.monthes;
-
       $scope.selectedItem = $scope.subject[0];
-      $scope.changed();
-      $scope.labels = returnLabels($scope.monthes, $scope.years )
 
-      $scope.monthes = [];
+
+
+      fillForm(0, 0);
+
+      $scope.monthesYearsDropdown = [];
 
       for(var i=0; i< $scope.labels.length; i++)
       {
-        
+        $scope.monthesYearsDropdown.push({
+          label: $scope.labels[i],
+          year: $scope.years[i],
+          month: $scope.monthes[i],
+          index: i
+        });
+
+        $scope.startPoint = $scope.monthesYearsDropdown[0];
       }
     });
 
@@ -112,6 +145,35 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
 
       return labels;
+    }
+
+    function fillForm(startIndex, count){
+
+      $scope.years = $scope.data.years;
+      $scope.yearsGrouped = groupYears($scope.data.years);
+      $scope.monthes = $scope.data.monthes;
+
+      if(count > 0) {
+
+        if (count < $scope.years.length - startIndex) {
+
+          var yearsBase = $scope.years.slice(startIndex, count);
+          $scope.years = yearsBase;
+          $scope.yearsGrouped = groupYears(yearsBase);
+          $scope.monthes = $scope.data.monthes.slice(startIndex, count);
+        }
+        else
+        {
+          var yearsBase = $scope.years.slice(startIndex);
+          $scope.years = yearsBase;
+          $scope.yearsGrouped = groupYears(yearsBase);
+          $scope.monthes = $scope.data.monthes.slice(startIndex);
+        }
+      }
+
+      $scope.changed();
+      $scope.labels = returnLabels($scope.monthes, $scope.years);
+
     }
 
     $scope.years = ['2016', '2016'];
@@ -149,7 +211,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
     $scope.redrawChart = function () {
       $scope.series = [ $scope.planIndex.title, $scope.actualIndex.title ];
-      $scope.data = [ $scope.planIndex.data, $scope.actualIndex.data ];
+      $scope.dataDraw = [ $scope.planIndex.data, $scope.actualIndex.data ];
       $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
     }
 
