@@ -24,11 +24,11 @@
       <div class="group date-pick">
         <span class="data-label">From:</span>
         <span class="select">
-          <select ng-model="startPoint" ng-options="st.label for st in monthesYearsDropdown track by $index"></select>
+          <select ng-model="startPoint" ng-options="st.label for st in monthesYearsDropdown track by st.index"></select>
         </span>
         <span class="data-label">To:</span>
         <span class="select">
-          <select ng-model="timeline" ng-options="tm.title for tm in timelineDropdown track by $index"></select>
+          <select ng-model="timeline" ng-options="tm.title for tm in timelineDropdown track by tm.index"></select>
         </span>
         <div class="group">
           <input class="" type="button" value="Accept" style="width: 100%;" ng-click="acceptFilter()">
@@ -79,7 +79,7 @@
                 <select ng-model="colorAccPlan" ng-options="color for color in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
-            <td ng-repeat="value in plan[planIndex.index].data track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
+            <td ng-repeat="value in plan[planIndex.index].filteredData track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
           </tr>
           <tr ng-show="actualVisible">
             <!-- ACCUMULATE ACTUAL -->
@@ -94,7 +94,7 @@
                 <select ng-model="colorAccActual" ng-options="color2 for color2 in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
-            <td ng-repeat="value in actual[actualIndex.index].data  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
+            <td ng-repeat="value in actual[actualIndex.index].filteredData  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
           </tr>
         </tbody>
       </table>
