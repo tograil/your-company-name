@@ -164,19 +164,16 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       if(count > 0) {
 
         if (count < $scope.years.length - startIndex) {
+          count = $scope.years.length - startIndex;
+        }
 
-          var yearsBase = $scope.years.slice(startIndex, count);
-          $scope.years = yearsBase;
-          $scope.yearsGrouped = groupYears(yearsBase);
-          $scope.monthes = $scope.data.monthes.slice(startIndex, count);
-        }
-        else
-        {
-          var yearsBase = $scope.years.slice(startIndex);
-          $scope.years = yearsBase;
-          $scope.yearsGrouped = groupYears(yearsBase);
-          $scope.monthes = $scope.data.monthes.slice(startIndex);
-        }
+        count += startIndex;
+
+
+        var yearsBase = $scope.years.slice(startIndex, count);
+        $scope.years = yearsBase;
+        $scope.yearsGrouped = groupYears(yearsBase);
+        $scope.monthes = $scope.data.monthes.slice(startIndex, count);
       }
 
       $scope.changed();
@@ -219,8 +216,10 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       {
         if(count != 0)
         {
-          $scope.plan[i].filteredData = $scope.plan[i].data.slice(startIndex,count);
-          $scope.actual[i].filteredData = $scope.actual[i].data.slice(startIndex,count);
+          var pos = count + startIndex;
+
+          $scope.plan[i].filteredData = $scope.plan[i].data.slice(startIndex, pos);
+          $scope.actual[i].filteredData = $scope.actual[i].data.slice(startIndex, pos);
         }
         else{
            $scope.plan[i].filteredData = $scope.plan[i].data;
