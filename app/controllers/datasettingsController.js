@@ -79,30 +79,36 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.monthesYearsDropdown = [];
       $scope.timelineDropdown = [
         {
+          title: 'All',
+          amount: 0,
+          index: 0
+        },
+        {
           title: '6 monthes',
           amount: 6,
-          index: 0
+          index: 1
         },
         {
           title: '1 years',
           amount: 12,
-          index: 1
+          index: 2
         },
         {
           title: '2 years',
           amount: 24,
-          index: 2
+          index: 3
         },
         {
           title: '3 years',
           amount: 36,
-          index: 3
+          index: 4
         },
         {
           title: '4 years',
           amount: 48,
-          index: 4
-        }];
+          index: 5
+        }
+      ];
 
       $scope.timeline = $scope.timelineDropdown[0];
       
