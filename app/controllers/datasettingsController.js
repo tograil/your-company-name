@@ -80,29 +80,36 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.timelineDropdown = [
         {
           title: '6 monthes',
-          amount: 6
+          amount: 6,
+          index: 0
         },
         {
           title: '1 years',
-          amount: 12
+          amount: 12,
+          index: 1
         },
         {
           title: '2 years',
-          amount: 24
+          amount: 24,
+          index: 2
         },
         {
           title: '3 years',
-          amount: 36
+          amount: 36,
+          index: 3
         },
         {
           title: '4 years',
-          amount: 48
+          amount: 48,
+          index: 4
         }];
 
       $scope.timeline = $scope.timelineDropdown[0];
       
       $scope.acceptFilter = function () {
         fillForm($scope.startPoint.index, $scope.timeline.amount);
+        fillData($scope.startPoint.index, $scope.timeline.amount);
+
       }
 
       for(var i=0; i<data.settingItems.length; i++)
@@ -113,9 +120,10 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
           plan: getData(data.settingItems[i].planDataItems),
           actual: getData(data.settingItems[i].actualDataItems)
         });
+        $scope.selectedItem = $scope.subject[0];
       }
 
-      $scope.selectedItem = $scope.subject[0];
+      
 
 
 
@@ -172,6 +180,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
 
       $scope.changed();
+
       $scope.labels = returnLabels($scope.monthes, $scope.years);
 
     }
@@ -194,14 +203,43 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       return hist;
     }
 
+    function fillData(startIndex, count) {
+      var selectedItem = $scope.selectedItem;
+        $scope.plan = selectedItem.plan;
+        $scope.actual = selectedItem.actual;
+      var filterCount = $scope.plan[0].data.length;
+        
+      //TODO: REFACTOR THIS
+      if(count >= filterCount - startIndex)
+      {
+        count = count - (filterCount + startIndex);
+      }
+
+      for(var i = 0; i < $scope.plan.length; i++)
+      {
+        if(count != 0)
+        {
+          $scope.plan[i].filteredData = $scope.plan[i].data.slice(startIndex,count);
+          $scope.actual[i].filteredData = $scope.actual[i].data.slice(startIndex,count);
+        }
+        else{
+           $scope.plan[i].filteredData = $scope.plan[i].data;
+          $scope.actual[i].filteredData = $scope.actual[i].data;
+        }
+      }
+    }
+
+     
+
     $scope.changed = function () {
       if($scope.selectedItem == null)
           return;
 
       var selectedItem = $scope.selectedItem;
+      var startIndex = $scope.startPoint == null ? 0 : $scope.startPoint.index;
+      var amount = $scope.startPoint == null ? 0 : $scope.timeline.amount;
 
-      $scope.plan = selectedItem.plan;
-      $scope.actual = selectedItem.actual;
+     fillData(startIndex, amount);
 
       $scope.planIndex = selectedItem.plan[1];
       $scope.actualIndex = selectedItem.actual[1];
@@ -218,6 +256,7 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
     $scope.labels = [];
     $scope.series = [];
     $scope.data = [];
+    
     $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
 
 }]);
