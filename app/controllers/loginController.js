@@ -24,7 +24,7 @@ app.controller('loginController', ['$scope', '$state', 'authService', function (
                 $scope.message = err.error_description;
             });
 
-        $state.go('main.dashboard.list');
+        //$state.go('main.dashboard.list');
     };
 
     $scope.validateError = function(){

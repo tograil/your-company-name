@@ -60,23 +60,17 @@ function dataService($http, globalConstants, authService) {
 
     function getDashboard() {
         var subUrl = 'api/dashboard/';
-        return $http.get(urlBase + subUrl, { headers: {
-                'Authorization': 'Bearer ' + authService.authentication.token
-            }});
+        return $http.get(urlBase + subUrl);
     }
 
     function getDocuments() {
         var subUrl = 'api/document/';
-        return $http.get(urlBase + subUrl, { headers: {
-                'Authorization': 'Bearer ' + authService.authentication.token
-            }});
+        return $http.get(urlBase + subUrl);
     }
 
     function getDocumentPlanData(id) {
         var subUrl = 'api/document/plan/';
-        return $http.get(urlBase + subUrl + id, { headers: {
-            'Authorization': 'Bearer ' + authService.authentication.token
-        }});
+        return $http.get(urlBase + subUrl + id);
     }
 
     function postContact(data) {
