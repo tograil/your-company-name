@@ -60,13 +60,15 @@ app.config(function (ChartJsProvider) {
     }
   });
 });
-
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
 app.controller('Ctrl', function($scope, $http) {
 
   var view = 0;
 
-  $http.get('content/data/help-msg.json').success(function(data){$scope.helpMsg = data;});
-  $http.get('content/data/machine.json').success(function(data){$scope.machineData = data;});
+ //$http.get('content/data/help-msg.json').success(function(data){$scope.helpMsg = data;});
+  //$http.get('content/data/machine.json').success(function(data){$scope.machineData = data;});
 
   $scope.pageSelection = function(pageNumber) {view = pageNumber;}
   $scope.returnActiveClass = function(pageNumber) {return (pageNumber == view) ? 'active' : '';}

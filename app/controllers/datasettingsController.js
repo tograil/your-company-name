@@ -6,51 +6,25 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
 
 
+    $scope.actualVisible = true;
+    $scope.planVisible = true;
+    
 
   $scope.subject = [
-    {desc: '01 - GENERAL MOBILIZATION & DEMOBILIZATION - Structure ‏1'},
-    {desc: '02 - CHAPTER 01 - Main Breakwater Extension - MBE'},
-    {desc: '03 - CHAPTER 02 - Lee Revetment - LR (0-1032) '},
-    {desc: '04 - CHAPTER 03 - East Revetment (Rubble Mound) - ER ®'},
-    {desc: '05 - CHAPTER 04 - East Revetment (Caisson) and East Breakwater - ER (C) & EBW'},
-    {desc: '06 - CHAPTER 05 - Kishon Breakwater - KBW'},
-    {desc: '07 - CHAPTER 06 - Navigation Aids'},
-    {desc: '08 - CHAPTER 01 - Quay 6 -800m'},
-    {desc: '09 - CHAPTER 02 - Quay 7 -450m'},
-    {desc: '10 - CHAPTER 03 - Quay 8 -720m'},
-    {desc: '‎11 - DREDGING, RECLAMATION - Structure ‏5'},
-    {desc: '12 - AREA DEVELOPMENT ‏- Structure ‏6'},
-    {desc: '‎13 - DAY WORK & STAND BY - Structure ‏7'},
-    {desc: '14 - TOTAL By Months'}
+
   ];
+
+
+   $scope.monthes = [];
 
     $scope.selectedItem = $scope.subject[0];
   $scope.plan = [
-    {
-      title: 'Plan',
-      data: [ '9 367' , '28 365' , '47 479', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-      index: 0
-    } ,
-    {
-      title: 'AccumulatedPlan',
-      data: [ '9 367' , '28 365ss' , '47 479sss', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-      index: 1
 
-    }
   ];
 
 
     $scope.actual = [
-      {
-        title: 'Plan',
-        data: [ '9 367' , '28 365' , '47 479', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-        index: 0,
-      } ,
-      {
-        title: 'AccumulatedPlan',
-        data: [ '9 367' , '28 365ss' , '47 479sss', '59 622', '75 499', '123 246', '163 177', '225 025', '271 650', '365 930', '503 338', '621 474' ],
-        index: 1
-      }
+    
     ];
 
 
@@ -102,6 +76,47 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       $scope.data = data;
 
       $scope.subject = [];
+      $scope.monthesYearsDropdown = [];
+      $scope.timelineDropdown = [
+        {
+          title: 'All',
+          amount: 0,
+          index: 0
+        },
+        {
+          title: '6 monthes',
+          amount: 6,
+          index: 1
+        },
+        {
+          title: '1 years',
+          amount: 12,
+          index: 2
+        },
+        {
+          title: '2 years',
+          amount: 24,
+          index: 3
+        },
+        {
+          title: '3 years',
+          amount: 36,
+          index: 4
+        },
+        {
+          title: '4 years',
+          amount: 48,
+          index: 5
+        }
+      ];
+
+      $scope.timeline = $scope.timelineDropdown[0];
+      
+      $scope.acceptFilter = function () {
+        fillForm($scope.startPoint.index, $scope.timeline.amount);
+        fillData($scope.startPoint.index, $scope.timeline.amount);
+        $scope.redrawChart();
+      }
 
       for(var i=0; i<data.settingItems.length; i++)
       {
@@ -111,15 +126,28 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
           plan: getData(data.settingItems[i].planDataItems),
           actual: getData(data.settingItems[i].actualDataItems)
         });
+        $scope.selectedItem = $scope.subject[0];
       }
 
-      $scope.years = $scope.data.years;
-      $scope.yearsGrouped = groupYears($scope.data.years);
-      $scope.monthes = $scope.data.monthes;
+      
 
-      $scope.selectedItem = $scope.subject[0];
-      $scope.changed();
-      $scope.labels = returnLabels($scope.monthes, $scope.years )
+
+
+      fillForm(0, 0);
+
+      $scope.monthesYearsDropdown = [];
+
+      for(var i=0; i< $scope.labels.length; i++)
+      {
+        $scope.monthesYearsDropdown.push({
+          label: $scope.labels[i],
+          year: $scope.years[i],
+          month: $scope.monthes[i],
+          index: i
+        });
+
+        $scope.startPoint = $scope.monthesYearsDropdown[0];
+      }
     });
 
     function returnLabels(monthes, years) {
@@ -131,6 +159,33 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       }
 
       return labels;
+    }
+
+    function fillForm(startIndex, count){
+
+      $scope.years = $scope.data.years;
+      $scope.yearsGrouped = groupYears($scope.data.years);
+      $scope.monthes = $scope.data.monthes;
+
+      if(count > 0) {
+
+        if (count >= $scope.years.length - startIndex) {
+          count = $scope.years.length - startIndex;
+        }
+
+        var pos = count + startIndex;
+
+
+        var yearsBase = $scope.years.slice(startIndex, pos);
+        $scope.years = yearsBase;
+        $scope.yearsGrouped = groupYears(yearsBase);
+        $scope.monthes = $scope.data.monthes.slice(startIndex, pos);
+      }
+
+      $scope.changed();
+
+      $scope.labels = returnLabels($scope.monthes, $scope.years);
+
     }
 
     $scope.years = ['2016', '2016'];
@@ -151,14 +206,45 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
       return hist;
     }
 
+    function fillData(startIndex, count) {
+      var selectedItem = $scope.selectedItem;
+        $scope.plan = selectedItem.plan;
+        $scope.actual = selectedItem.actual;
+      var filterCount = $scope.plan[0].data.length;
+        
+      //TODO: REFACTOR THIS
+      if(count >= filterCount - startIndex)
+      {
+        count = count - (filterCount + startIndex);
+      }
+
+      for(var i = 0; i < $scope.plan.length; i++)
+      {
+        if(count != 0)
+        {
+          var pos = count + startIndex;
+
+          $scope.plan[i].filteredData = $scope.plan[i].data.slice(startIndex, pos);
+          $scope.actual[i].filteredData = $scope.actual[i].data.slice(startIndex, pos);
+        }
+        else{
+           $scope.plan[i].filteredData = $scope.plan[i].data;
+          $scope.actual[i].filteredData = $scope.actual[i].data;
+        }
+      }
+    }
+
+     
+
     $scope.changed = function () {
       if($scope.selectedItem == null)
           return;
 
       var selectedItem = $scope.selectedItem;
+      var startIndex = $scope.startPoint == null ? 0 : $scope.startPoint.index;
+      var amount = $scope.startPoint == null ? 0 : $scope.timeline.amount;
 
-      $scope.plan = selectedItem.plan;
-      $scope.actual = selectedItem.actual;
+     fillData(startIndex, amount);
 
       $scope.planIndex = selectedItem.plan[1];
       $scope.actualIndex = selectedItem.actual[1];
@@ -168,13 +254,14 @@ app.controller('DataSettings', ['$scope', '$state', '$stateParams', 'dataService
 
     $scope.redrawChart = function () {
       $scope.series = [ $scope.planIndex.title, $scope.actualIndex.title ];
-      $scope.data = [ $scope.planIndex.data, $scope.actualIndex.data ];
+      $scope.dataDraw = [ $scope.planIndex.filteredData, $scope.actualIndex.filteredData ];
       $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
     }
 
     $scope.labels = [];
     $scope.series = [];
-    $scope.data = [];
+    $scope.dataDraw = [];
+    
     $scope.grColors = [ colorsGraph[$scope.colorAccPlan],  colorsGraph[$scope.colorAccActual]];
 
 }]);

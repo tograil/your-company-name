@@ -20,29 +20,33 @@
       </table>
     </div>
 
-    <!--<form class="table">
+    <form class="table" >
       <div class="group date-pick">
-        <span class="data-label">C:</span>
+        <span class="data-label">From:</span>
         <span class="select">
-          <select>
-            <option value="">123</option>
-          </select>
+          <select ng-model="startPoint" ng-options="st.label for st in monthesYearsDropdown track by st.index"></select>
         </span>
-        <span class="data-label">ДО:</span>
+        <span class="data-label">To:</span>
         <span class="select">
-          <select>
-            <option value="">123</option>
-          </select>
+          <select ng-model="timeline" ng-options="tm.title for tm in timelineDropdown track by tm.index"></select>
         </span>
+        <div class="group">
+          <input class="" type="button" value="Accept" style="width: 100%;" ng-click="acceptFilter()">
+        </div>
       </div>
-    </form>-->
+    </form>
 
   <div class="table x-scroll">
     <table>
       <tr>
-        <td ng-repeat="x in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]">
+        <td>
           <div class="group">
-            <input class="" type="button" value="{{x}} - hide" style="width: 100%;">
+            <input class="" type="button" value="{{planIndex.title}} - {{planVisible ? 'Hide' : 'Show'}}" style="width: 100%;" ng-click="planVisible = !planVisible;">
+          </div>
+        </td>
+        <td>
+          <div class="group">
+            <input class="" type="button" value="{{actualIndex.title}} - {{actualVisible ? 'Hide' : 'Show'}}" style="width: 100%;"  ng-click="actualVisible = !actualVisible;">
           </div>
         </td>
       </tr>
@@ -62,7 +66,7 @@
             <td colspan="2" class="text-medium text-left text-uppercase">month</td>
             <td ng-repeat="month in monthes track by $index">{{month}}</td>
           </tr>
-          <tr>
+          <tr ng-show="planVisible">
             <!-- ACCUMULATE PLAN -->
             <td class="for-select">
               <div class="select">
@@ -75,9 +79,9 @@
                 <select ng-model="colorAccPlan" ng-options="color for color in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
-            <td ng-repeat="value in plan[planIndex.index].data track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
+            <td ng-repeat="value in plan[planIndex.index].filteredData track by $index" ng-class="returnClass(colorAccPlan);">{{value}}</td>
           </tr>
-          <tr>
+          <tr ng-show="actualVisible">
             <!-- ACCUMULATE ACTUAL -->
             <td class="for-select title">
               <div class="select">
@@ -90,7 +94,7 @@
                 <select ng-model="colorAccActual" ng-options="color2 for color2 in colors" ng-change="redrawChart()"></select>
               </div>
             </td>
-            <td ng-repeat="value in actual[actualIndex.index].data  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
+            <td ng-repeat="value in actual[actualIndex.index].filteredData  track by $index" ng-class="returnClass(colorAccActual);">{{value}}</td>
           </tr>
         </tbody>
       </table>
@@ -98,7 +102,7 @@
   </div>
 
   <div class="table">
-    <canvas width="950px" height="500px" class="chart chart-line" chart-data="data" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colours="grColors"></canvas>
+    <canvas width="950px" height="500px" class="chart chart-line" chart-data="dataDraw" chart-options="options", chart-labels="labels" chart-series="series" chart-click="onClick" chart-colours="grColors"></canvas>
   </div>
 
   <div class="loading" ng-show="false"></div>
