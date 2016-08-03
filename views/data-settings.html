@@ -31,7 +31,7 @@
           <select ng-model="timeline" ng-options="tm.title for tm in timelineDropdown track by tm.index"></select>
         </span>
         <div class="group">
-          <input class="" type="button" value="Accept" style="width: 100%;" ng-click="acceptFilter()">
+          <input class="" type="button" value="Accept" style="width: 100%;" ng-click="acceptFilter(startPoint.index, timeline.amount)">
         </div>
       </div>
     </form>
