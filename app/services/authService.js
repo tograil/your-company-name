@@ -55,6 +55,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'globalConstan
 
         _authentication.isAuth = false;
         _authentication.userName = "";
+        _authentication.token = undefined;
 
     };
 

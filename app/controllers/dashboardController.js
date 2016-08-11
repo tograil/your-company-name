@@ -34,7 +34,7 @@ function ($scope, $state, $http, globalConstants, dataService, authService) {
     reloadDocuments();
 
     dataService.getDashboard().success(function (data) {
-        if(!authService.token)
+        if(!authService.authentication.isAuth)
 			$state.go('login');
         $scope.isUploadAvailable = data.isUploadAvailable;
         dataService.getEndUsers().success(function (data) {
